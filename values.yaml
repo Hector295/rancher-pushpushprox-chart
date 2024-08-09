@@ -42,8 +42,9 @@ namespaceOverride: ""
 # The component that is being monitored (i.e. etcd)
 component: "component"
 
-# The port containing the metrics that need to be scraped
-metricsPort: 2739
+# The list of ports containing the metrics that need to be scraped
+metricsPort:
+  - 2739
 
 # Configure ServiceMonitor that monitors metrics from the metricsPort endpoint
 serviceMonitor:

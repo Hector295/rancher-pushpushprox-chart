@@ -48,7 +48,9 @@ spec:
         {{- if .Values.clients.metrics.enabled }}
         - --metrics-addr=$(PORT)
         {{- end }}
-        - --allow-port={{ required "Need .Values.metricsPort to configure client to be allowed to scrape metrics at port" .Values.metricsPort}}
+        {{- range .Values.metricsPort }}
+        - --allow-port={{ . }}
+        {{- end }}
         {{- if .Values.clients.useLocalhost }}
         - --use-localhost
         {{- end }}
